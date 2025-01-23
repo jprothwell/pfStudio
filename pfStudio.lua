@@ -110,4 +110,16 @@ function pfStudio.theme.dark()
   windget.fontopts = "NORMAL"
 end
 
+function pfStudio:toggleEvents()
+  if self.paused then
+    self.paused = nil
+    self.events:RegisterAllEvents()
+    self.events.input:AddMessage("|cff33ffccEvents resumed.|r\n")
+  else
+    self.paused = true
+    self.events:UnregisterAllEvents()
+    self.events.input:AddMessage("|cff33ffccEvents paused.|r\n")
+  end
+end
+
 pfStudio.theme.dark()

@@ -1,7 +1,7 @@
 local spacing = 10
 local tabwidth = 150
 
-pfStudio.toolbar = windget.window:CreateWindow("Toolbar", 220, 36, true, true)
+pfStudio.toolbar = windget.window:CreateWindow("Toolbar", 250, 36, true, true)
 
 local buttons = {
   { "run", "Run LUA Code" },
@@ -9,6 +9,7 @@ local buttons = {
   { "spacer", nil },
   { "editor", "Toggle Editor" },
   { "events", "Toggle Event Logger" },
+  { "pause", "Pause Events" },
   { "info", "Toggle Info Console" },
   { "time", "Toggle Performance Overview" },
 }
@@ -36,6 +37,10 @@ end)
 
 pfStudio.toolbar["debug"]:SetScript("OnClick", function()
   pfStudio.editor:DebugCode()
+end)
+
+pfStudio.toolbar["pause"]:SetScript("OnClick", function()
+  pfStudio:toggleEvents()
 end)
 
 pfStudio.toolbar["editor"]:SetScript("OnClick", function()
